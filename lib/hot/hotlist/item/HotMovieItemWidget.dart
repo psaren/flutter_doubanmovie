@@ -36,6 +36,7 @@ class _HotMovieItemWidgetState extends State<HotMovieItemWidget> {
                   Text(
                     widget.hotMovieData.title,
                     style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     widget.hotMovieData.rating.average.toString(),
@@ -44,10 +45,13 @@ class _HotMovieItemWidgetState extends State<HotMovieItemWidget> {
                   Text(
                     '导演: ' + widget.hotMovieData.getDirectors(),
                     style: TextStyle(fontSize: 14.0, color: Colors.black54),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     '主演: ' + widget.hotMovieData.getCasts(),
                     style: TextStyle(fontSize: 14.0, color: Colors.black54),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                 ],
               ),
@@ -66,7 +70,7 @@ class _HotMovieItemWidgetState extends State<HotMovieItemWidget> {
                 OutlineButton(
                   child: Text('购票', style: TextStyle(color: Colors.red, fontSize: 16)),
                   color: Colors.red,
-                  highlightColor: Colors.red,
+                  // highlightColor: Colors.red,
                   borderSide: BorderSide(
                     color: Colors.red
                   ),
