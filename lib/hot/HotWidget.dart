@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:doubanmovie/hot/hotlist/HotMoviesListWidget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
 class HotWidget extends StatefulWidget {
   HotWidget({Key key}) : super(key: key);
@@ -19,26 +19,29 @@ class _HotWidgetState extends State<HotWidget> {
     initData();
   }
   void initData() async {
-    final prefs = await SharedPreferences.getInstance();//获取 prefs
+    // final prefs = await SharedPreferences.getInstance();//获取 prefs
 
-    String city = prefs.getString('curCity');//获取 key 为 curCity 的值
+    // String city = prefs.getString('curCity');//获取 key 为 curCity 的值
 
-    if (city != null && city.isNotEmpty) { //如果有值
-      setState((){
-        curCity = city;
-      });
-    } else {//如果没有值，则使用默认值
-      setState((){
-        curCity = '深圳';
-      });
-    }
+    // if (city != null && city.isNotEmpty) { //如果有值
+    //   setState((){
+    //     curCity = city;
+    //   });
+    // } else {//如果没有值，则使用默认值
+    //   setState((){
+    //     curCity = '深圳';
+    //   });
+    // }
+    setState((){
+      curCity = '深圳';
+    });
   }
 
   void _jumpToCitysWidget() async{
     var selectCity = await Navigator.pushNamed(context, '/Citys',arguments: curCity);
     if(selectCity == null) return;
-    final prefs = await SharedPreferences.getInstance(); 
-    prefs.setString('curCity', selectCity); //存取数据
+    // final prefs = await SharedPreferences.getInstance(); 
+    // prefs.setString('curCity', selectCity); //存取数据
     setState(() {
       curCity =  selectCity;
     });
